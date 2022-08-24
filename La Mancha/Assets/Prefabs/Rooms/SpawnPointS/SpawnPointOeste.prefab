@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5688959515311525130}
   - component: {fileID: 5688959515311525237}
   m_Layer: 0
-  m_Name: SpawnPointNorte
+  m_Name: SpawnPointOeste
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -44,5 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0c6402aa624ee42b09a56260ad296e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myPos: 3
   rooms:
   - {fileID: 9066149243043527150, guid: 4788692080184da48b18e13890d3ede2, type: 3}
+  - {fileID: 9066149243043527150, guid: e3263bb0ebfdc964982891a664d1852a, type: 3}
+  - {fileID: 9066149243043527150, guid: 59518387026659c4db2318cd68bbfb99, type: 3}
+  - {fileID: 9066149243043527150, guid: 7414c4668defaab41b3b1a151aba14db, type: 3}
+  - {fileID: 9066149243043527150, guid: 2e67ce8c270604e459117e4c47951781, type: 3}
+  - {fileID: 9066149243043527150, guid: 4dfa07e9c0ff8ec43aa45204f4b671f0, type: 3}

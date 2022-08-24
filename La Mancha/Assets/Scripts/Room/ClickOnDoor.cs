@@ -18,7 +18,7 @@ public class ClickOnDoor : MonoBehaviour
 
     IEnumerator esperate()
     {
-        roomSpawner.SpawnRoom();
+        roomSpawner.SpawnRoom(transform.parent.transform.parent.gameObject);
         yield return new WaitForSeconds(.2f);
         NavMeshBaker.Bake();
         PlayerMovementOnClick.Move(roomSpawner.transform.position);
