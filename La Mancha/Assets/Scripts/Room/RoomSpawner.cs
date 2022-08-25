@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class RoomSpawner : MonoBehaviour
 {
-    public enum SpawnPos { Norte, Sur, Este, Oeste };
-    public SpawnPos myPos;
     public GameObject[] rooms;
 
     public void SpawnRoom(GameObject lastRoom)
@@ -17,7 +15,6 @@ public class RoomSpawner : MonoBehaviour
         foreach (Transform child in room.transform.GetChild(1))
         {
             dist[count] = Vector3.Distance(child.position, lastRoom.transform.position);
-            Debug.Log(dist[count]);
             count++;
         }
 
@@ -27,13 +24,10 @@ public class RoomSpawner : MonoBehaviour
         {
             if(dist[i] == minValue)
             {
-                Debug.Log("Valor minimo encontrado");
-                //room.transform.GetChild(2).GetChild(i).position = lastRoom.transform.position;
-                //room.transform.LookAt(room.transform.GetChild(2).GetChild(i));
+                room.transform.GetChild(2).GetChild(i).position = lastRoom.transform.position;
+                room.transform.LookAt(room.transform.GetChild(2).GetChild(i));
                 return;
             }
         }
-
-        //room.transform.Rotate(new Vector3(0, room.transform.localRotation.y, 0));
     }
 }
