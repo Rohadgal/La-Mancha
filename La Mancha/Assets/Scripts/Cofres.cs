@@ -9,11 +9,13 @@ public class Cofres : MonoBehaviour
 
     enum CofreOpcion { Mancha, Enemigo, Item };
 
-   
+    Combate combat;
  
 
     private void Start()
     {
+        combat = GameObject.Find("CombatManager").GetComponent<Combate>();
+
         Debug.Log("Existo");
         if (Random.value <= spawnProbability)
         {
@@ -27,15 +29,18 @@ public class Cofres : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        var enumLength = CofreOpcion.GetNames(typeof(CofreOpcion)).Length;
-        int azarNum = Random.Range(0, enumLength);
-        switch (azarNum)
+        if(collision.gameObject.CompareTag("Player"))
         {
-            case 0: LaMancha(); break;
-            case 1: Enemigo(); break;
-            case 2: Item(); break;
+            var enumLength = CofreOpcion.GetNames(typeof(CofreOpcion)).Length;
+            int azarNum = Random.Range(0, enumLength);
+            switch (azarNum)
+            {
+                case 0: LaMancha(); break;
+                case 1: Enemigo(); break;
+                case 2: Item(); break;
+            }
+            MadFix(false);
         }
-        MadFix(false);
     }
 
     void LaMancha()
@@ -46,6 +51,7 @@ public class Cofres : MonoBehaviour
     void Enemigo()
     {
         Debug.Log("Apareció enemigo");
+        combat.StartCombat();
     }
 
     void Item()

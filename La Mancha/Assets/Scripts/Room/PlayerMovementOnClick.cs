@@ -47,4 +47,11 @@ public class PlayerMovementOnClick : MonoBehaviour
         meshSurface.BuildNavMesh();
         Debug.Log("En destino");
     }
+
+    public static void TurnCameraOnOff(bool apagarCamara)
+    {
+        s_followCamera.SetActive(apagarCamara);
+        s_movementCamera.SetActive(!apagarCamara);
+    }
+
 }
