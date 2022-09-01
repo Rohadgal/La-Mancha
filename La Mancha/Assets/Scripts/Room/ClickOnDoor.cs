@@ -9,11 +9,7 @@ public class ClickOnDoor : MonoBehaviour
 
     void OnMouseDown()
     {
-        // this object was clicked - do something
-        //Destroy(this.gameObject);
-        //this.gameObject.transform.position = new Vector3(0, 100,0);
         StartCoroutine(esperate());
-
     }
 
     IEnumerator esperate()
