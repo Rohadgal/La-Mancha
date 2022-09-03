@@ -12,7 +12,7 @@ public class RoomSpawner : MonoBehaviour
         float[] dist = new float[room.transform.GetChild(1).childCount];
 
         int count = 0;
-        foreach (Transform child in room.transform.GetChild(1))
+        foreach (Transform child in room.transform.GetChild(2))
         {
             dist[count] = Vector3.Distance(child.position, lastRoom.transform.position);
             count++;
@@ -22,11 +22,9 @@ public class RoomSpawner : MonoBehaviour
 
         for (int i = 0; i < dist.Length; i++)
         {
-            if(dist[i] == minValue)
+            if (dist[i] == minValue)
             {
-                room.transform.GetChild(2).GetChild(i).position = lastRoom.transform.position;
-                room.transform.LookAt(room.transform.GetChild(2).GetChild(i));
-                return;
+                room.transform.LookAt(lastRoom.transform.position);
             }
         }
     }

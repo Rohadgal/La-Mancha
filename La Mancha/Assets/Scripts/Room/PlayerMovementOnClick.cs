@@ -27,8 +27,7 @@ public class PlayerMovementOnClick : MonoBehaviour
         {
             if (navMeshAgent.remainingDistance < 0.1)
             {
-                s_followCamera.SetActive(false);
-                s_movementCamera.SetActive(true);
+                TurnCameraOnOff(false);
                 s_movementCamera.transform.position = s_followCamera.transform.position;
                 moving = false;
             }// Checar si ya llego a su destino
@@ -36,8 +35,6 @@ public class PlayerMovementOnClick : MonoBehaviour
     }
     public static void Move(Vector3 position)
     {
-        s_followCamera.SetActive(true);
-        s_movementCamera.SetActive(false);
         moving = true;
         navMeshAgent.destination = position;
     }

@@ -17,6 +17,7 @@ public class ClickOnDoor : MonoBehaviour
         roomSpawner.SpawnRoom(transform.parent.transform.parent.gameObject);
         yield return new WaitForSeconds(.2f);
         NavMeshBaker.Bake();
+        PlayerMovementOnClick.TurnCameraOnOff(true);
         PlayerMovementOnClick.Move(roomSpawner.transform.position);
     }
 }
