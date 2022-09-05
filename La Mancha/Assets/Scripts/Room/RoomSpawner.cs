@@ -9,7 +9,7 @@ public class RoomSpawner : MonoBehaviour
     public void SpawnRoom(GameObject lastRoom)
     {
         GameObject room = Instantiate(rooms[Random.Range(0, rooms.Length)], transform.position, Quaternion.identity);
-        float[] dist = new float[room.transform.GetChild(1).childCount];
+        float[] dist = new float[room.transform.GetChild(2).childCount];
 
         int count = 0;
         foreach (Transform child in room.transform.GetChild(2))

@@ -7,6 +7,8 @@ public class PlayerMovementOnClick : MonoBehaviour
 {
     static GameObject player;
     public GameObject followCamera, movementCamera;
+    public Animator animator;
+    static Animator anim;
     static GameObject s_followCamera, s_movementCamera;
     static bool moving = false;
     public static NavMeshAgent navMeshAgent;
@@ -19,6 +21,7 @@ public class PlayerMovementOnClick : MonoBehaviour
         s_movementCamera = movementCamera;
         navMeshAgent = GetComponent<NavMeshAgent>();
         meshSurface = GetComponent<NavMeshSurface>();
+        anim = animator;    
     }
 
     private void Update()
@@ -30,11 +33,13 @@ public class PlayerMovementOnClick : MonoBehaviour
                 TurnCameraOnOff(false);
                 s_movementCamera.transform.position = s_followCamera.transform.position;
                 moving = false;
+                anim.SetBool("IsWalking", false);
             }// Checar si ya llego a su destino
         }// Checar si se esta moviendo
     }
     public static void Move(Vector3 position)
     {
+        anim.SetBool("IsWalking", true);
         moving = true;
         navMeshAgent.destination = position;
     }
