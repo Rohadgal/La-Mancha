@@ -14,7 +14,8 @@ public class Interactable : MonoBehaviour
     private void OnMouseOver()
     {
         //Debug.Log("mouse encima");
-        outlineMesh.SetActive(true);   
+        if(!Combate.enCombate && PlayerMovementOnClick.canMove)
+            outlineMesh.SetActive(true);   
     }
 
     private void OnMouseExit()
