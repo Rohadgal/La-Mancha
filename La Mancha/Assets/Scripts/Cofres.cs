@@ -7,7 +7,8 @@ public class Cofres : MonoBehaviour
     [Range(0,1)]
     public float spawnProbability;
 
-    enum CofreOpcion { Mancha, Enemigo, Item, Llave }; 
+    public enum CofreOpcion { Mancha, Enemigo, Item, Llave };
+    public CofreOpcion[] opciones;
 
     Combate combat;
  
@@ -31,14 +32,14 @@ public class Cofres : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            var enumLength = CofreOpcion.GetNames(typeof(CofreOpcion)).Length;
-            int azarNum = Random.Range(0, enumLength);
-            switch (azarNum)
+            int azarNum = Random.Range(0, opciones.Length);
+
+            switch (opciones[azarNum])
             {
-                case 0: LaMancha(); break;
-                case 1: Enemigo(); break;
-                case 2: Item(); break;
-                case 3: Debug.Log("Llave"); break;
+                case CofreOpcion.Mancha: LaMancha(); break;
+                case CofreOpcion.Enemigo: Enemigo(); break;
+                case CofreOpcion.Item: Item(); break;
+                case CofreOpcion.Llave: Debug.Log("Llave"); break;
             }
             MadFix(false);
         }
