@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Combate : MonoBehaviour
 {
@@ -13,11 +14,22 @@ public class Combate : MonoBehaviour
     int counterMiss;
 
     public GameObject canvasBackground;
+    public TMP_Text contadorTexto;
+    public float cuentaRegresiva = 3;
+    float cuentaRegresivaContador;
+    bool contandoRegresivamente;
 
     public float timeLimit = 1.3f;
     float timer;
 
     bool contando = false;
+
+    public static bool enCombate;
+
+    private void Start()
+    {
+        enCombate = false;
+    }
 
     private void Update()
     {
@@ -28,6 +40,19 @@ public class Combate : MonoBehaviour
             {
                 counterMiss++;
                 timer = 0;
+                CombatMethod();
+            }
+        }
+
+        if (contandoRegresivamente)
+        {
+            cuentaRegresivaContador -= Time.deltaTime;
+            contadorTexto.text = Mathf.FloorToInt(cuentaRegresivaContador).ToString();
+            if(cuentaRegresivaContador < 0)
+            {
+                contandoRegresivamente = false;
+                contando = true;
+                contadorTexto.gameObject.SetActive(false);
                 CombatMethod();
             }
         }
@@ -72,17 +97,25 @@ public class Combate : MonoBehaviour
         PlayerMovementOnClick.TurnCameraOnOff(false);
         canvasBackground.SetActive(false);
         contando = false;
+        enCombate = false;
     }
 
     public void StartCombat()
     {
+        enCombate = true;
         PlayerMovementOnClick.TurnCameraOnOff(true);
         canvasBackground.SetActive(true);
-        contando = true;
+
+        foreach (Image target in targets)
+        {
+            target.gameObject.SetActive(false);
+        }
+
+        contadorTexto.gameObject.SetActive(true);
+        contandoRegresivamente = true;
+        cuentaRegresivaContador = cuentaRegresiva;
         counterHit = 0;
         counterMiss = 0;
-        timer = 0;
-        CombatMethod();
+        timer = 0;        
     }
-    
 }
