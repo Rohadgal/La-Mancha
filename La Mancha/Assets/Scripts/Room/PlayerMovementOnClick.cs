@@ -13,6 +13,8 @@ public class PlayerMovementOnClick : MonoBehaviour
     static bool moving = false;
     public static NavMeshAgent navMeshAgent;
     public static NavMeshSurface meshSurface;
+    static Transform target;
+    public static bool canMove;
     
     private void Start()
     {
@@ -21,7 +23,8 @@ public class PlayerMovementOnClick : MonoBehaviour
         s_movementCamera = movementCamera;
         navMeshAgent = GetComponent<NavMeshAgent>();
         meshSurface = GetComponent<NavMeshSurface>();
-        anim = animator;    
+        anim = animator;
+        canMove = true;
     }
 
     private void Update()
@@ -34,15 +37,20 @@ public class PlayerMovementOnClick : MonoBehaviour
                 s_movementCamera.transform.position = s_followCamera.transform.position;
                 moving = false;
                 anim.SetBool("IsWalking", false);
-                anim.SetTrigger("Find");
+                canMove = true;
+                if(target != null)
+                    transform.LookAt(target);
             }// Checar si ya llego a su destino
         }// Checar si se esta moviendo
     }
     public static void Move(Vector3 position)
     {
+        target = null;
+        navMeshAgent.updatePosition = true;
         anim.SetBool("IsWalking", true);
         moving = true;
         navMeshAgent.destination = position;
+        canMove = false;
     }
 
     public static void Bake()
@@ -57,4 +65,9 @@ public class PlayerMovementOnClick : MonoBehaviour
         s_movementCamera.SetActive(!apagarCamara);
     }
 
+    public static void LookAtTarget(Transform _target)
+    {
+        target = _target;
+        anim.SetTrigger("Find");
+    }
 }

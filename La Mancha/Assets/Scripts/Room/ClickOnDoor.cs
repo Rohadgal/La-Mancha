@@ -9,7 +9,7 @@ public class ClickOnDoor : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (!Combate.enCombate)
+        if (!Combate.enCombate && PlayerMovementOnClick.canMove)
         {
             StartCoroutine(esperate());
         }

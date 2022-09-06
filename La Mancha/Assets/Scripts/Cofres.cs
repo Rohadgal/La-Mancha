@@ -32,6 +32,7 @@ public class Cofres : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            PlayerMovementOnClick.LookAtTarget(gameObject.transform);
             int azarNum = Random.Range(0, opciones.Length);
 
             switch (opciones[azarNum])
