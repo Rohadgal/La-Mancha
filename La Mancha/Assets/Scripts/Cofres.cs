@@ -7,7 +7,7 @@ public class Cofres : MonoBehaviour
     [Range(0,1)]
     public float spawnProbability;
 
-    enum CofreOpcion { Mancha, Enemigo, Item };
+    enum CofreOpcion { Mancha, Enemigo, Item, Llave }; 
 
     Combate combat;
  
@@ -38,6 +38,7 @@ public class Cofres : MonoBehaviour
                 case 0: LaMancha(); break;
                 case 1: Enemigo(); break;
                 case 2: Item(); break;
+                case 3: Debug.Log("Llave"); break;
             }
             MadFix(false);
         }

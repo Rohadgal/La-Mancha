@@ -9,7 +9,10 @@ public class ClickOnDoor : MonoBehaviour
 
     void OnMouseDown()
     {
-        StartCoroutine(esperate());
+        if (!Combate.enCombate)
+        {
+            StartCoroutine(esperate());
+        }
     }
 
     IEnumerator esperate()
