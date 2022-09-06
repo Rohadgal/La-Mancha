@@ -34,6 +34,7 @@ public class PlayerMovementOnClick : MonoBehaviour
                 s_movementCamera.transform.position = s_followCamera.transform.position;
                 moving = false;
                 anim.SetBool("IsWalking", false);
+                anim.SetTrigger("Find");
             }// Checar si ya llego a su destino
         }// Checar si se esta moviendo
     }
