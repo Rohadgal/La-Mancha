@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnProbability: 0.3
+  opciones: 0000000001000000020000000300000002000000020000000100000001000000
 --- !u!54 &-2988605737996471863
 Rigidbody:
   m_ObjectHideFlags: 0
