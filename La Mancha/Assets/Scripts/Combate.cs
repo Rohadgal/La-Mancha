@@ -98,6 +98,7 @@ public class Combate : MonoBehaviour
         canvasBackground.SetActive(false);
         contando = false;
         enCombate = false;
+        CheckWinner();
     }
 
     public void StartCombat()
@@ -117,5 +118,13 @@ public class Combate : MonoBehaviour
         counterHit = 0;
         counterMiss = 0;
         timer = 0;        
+    }
+
+    public void CheckWinner()
+    {
+        if(counterMiss>counterHit)
+        {
+            Character_2.TakeDamage();
+        }
     }
 }
