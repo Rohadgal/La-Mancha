@@ -26,9 +26,14 @@ public class Character_2 : MonoBehaviour
     public static void TakeDamage()
     {
         image.fillAmount -= .333f;
-        if(image.fillAmount < .2f)
+        if(image.fillAmount < .1f)
         {
             image.fillAmount = 0;
         }
+    }
+
+    public static void Heal()
+    {
+        image.fillAmount += .333f/2;
     }
 }
