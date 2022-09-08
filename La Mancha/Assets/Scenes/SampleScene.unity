@@ -2932,7 +2932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 2032725016}
+  - {fileID: 9066149243043527150, guid: 4788692080184da48b18e13890d3ede2, type: 3}
   - {fileID: 9066149243043527150, guid: e3263bb0ebfdc964982891a664d1852a, type: 3}
   - {fileID: 9066149243043527150, guid: 59518387026659c4db2318cd68bbfb99, type: 3}
   - {fileID: 9066149243043527150, guid: 7414c4668defaab41b3b1a151aba14db, type: 3}
@@ -5428,7 +5428,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &2077659209
 GameObject:
@@ -5786,7 +5786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 2032725016}
+  - {fileID: 9066149243043527150, guid: 4788692080184da48b18e13890d3ede2, type: 3}
   - {fileID: 9066149243043527150, guid: e3263bb0ebfdc964982891a664d1852a, type: 3}
   - {fileID: 9066149243043527150, guid: 59518387026659c4db2318cd68bbfb99, type: 3}
   - {fileID: 9066149243043527150, guid: 7414c4668defaab41b3b1a151aba14db, type: 3}
@@ -7222,7 +7222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 4131298812504581050}
+  - {fileID: 9066149243043527150, guid: 4788692080184da48b18e13890d3ede2, type: 3}
   - {fileID: 9066149243043527150, guid: e3263bb0ebfdc964982891a664d1852a, type: 3}
   - {fileID: 9066149243043527150, guid: 59518387026659c4db2318cd68bbfb99, type: 3}
   - {fileID: 9066149243043527150, guid: 7414c4668defaab41b3b1a151aba14db, type: 3}
@@ -7958,7 +7958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 4131298812504581050}
+  - {fileID: 9066149243043527150, guid: 4788692080184da48b18e13890d3ede2, type: 3}
   - {fileID: 9066149243043527150, guid: e3263bb0ebfdc964982891a664d1852a, type: 3}
   - {fileID: 9066149243043527150, guid: 59518387026659c4db2318cd68bbfb99, type: 3}
   - {fileID: 9066149243043527150, guid: 7414c4668defaab41b3b1a151aba14db, type: 3}
@@ -9207,7 +9207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 4131298812504581050}
+  - {fileID: 9066149243043527150, guid: 4788692080184da48b18e13890d3ede2, type: 3}
   - {fileID: 9066149243043527150, guid: e3263bb0ebfdc964982891a664d1852a, type: 3}
   - {fileID: 9066149243043527150, guid: 59518387026659c4db2318cd68bbfb99, type: 3}
   - {fileID: 9066149243043527150, guid: 7414c4668defaab41b3b1a151aba14db, type: 3}

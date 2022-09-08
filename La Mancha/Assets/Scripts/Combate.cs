@@ -62,8 +62,6 @@ public class Combate : MonoBehaviour
     {
         if(counterMiss < 3)
         {
-            Debug.Log("Missed target" + "counter missed: " + counterMiss); 
-
             foreach (Image target in targets)
             {
                 target.gameObject.SetActive(false);
@@ -82,7 +80,6 @@ public class Combate : MonoBehaviour
     public void DestroyTarget()
     {
         timer = 0;
-        Debug.Log("Función Destroy Target");
         if (counterHit < 3)
         {
             targets[randomTarget].gameObject.SetActive(false);
