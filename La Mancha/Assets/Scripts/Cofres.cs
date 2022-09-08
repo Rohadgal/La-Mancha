@@ -20,7 +20,6 @@ public class Cofres : MonoBehaviour
     {
         combat = GameObject.Find("CombatManager").GetComponent<Combate>();
 
-        Debug.Log("Existo");
         if (Random.value <= spawnProbability)
         {
             MadFix(false);
@@ -52,7 +51,6 @@ public class Cofres : MonoBehaviour
 
     void LaMancha()
     {
-        Debug.Log("Llegó la Mancha!!!");
         Character_2.mancha++;
         ActualizarManchaTexto();
         StartCoroutine(TimeBlackTimmy());
@@ -60,13 +58,11 @@ public class Cofres : MonoBehaviour
 
     void Enemigo()
     {
-        Debug.Log("Apareció enemigo");
         combat.StartCombat();
     }
 
     void Item()
     {
-        Debug.Log("Encontraste Item");
         Character_2.Heal();
     }
 
@@ -96,7 +92,6 @@ public class Cofres : MonoBehaviour
 
     void Llave()
     {
-        Debug.Log("Encontraste llave");
         timmy.keys++;
         ActualizarLlaveTexto();
 
