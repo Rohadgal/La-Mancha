@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class ButtonClicks : MonoBehaviour , IPointerEnterHandler, IPointerClickHandler
 {
@@ -17,6 +18,11 @@ public class ButtonClicks : MonoBehaviour , IPointerEnterHandler, IPointerClickH
     public void OnPointerClick(PointerEventData eventData)
     {
         clickSource.PlayOneShot(clickSound);
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 }
 
