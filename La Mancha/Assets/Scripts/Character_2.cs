@@ -13,7 +13,7 @@ public class Character_2 : MonoBehaviour
     Image s_image;
     public float life;
     public int keys;
-    public int mancha;
+    public static int mancha;
 
     private void Start()
     {
