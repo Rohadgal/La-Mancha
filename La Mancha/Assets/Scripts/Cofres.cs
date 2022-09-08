@@ -67,6 +67,7 @@ public class Cofres : MonoBehaviour
     void Item()
     {
         Debug.Log("Encontraste Item");
+        Character_2.Heal();
     }
 
     void MadFix(bool estado)
