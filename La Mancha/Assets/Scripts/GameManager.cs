@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -44,13 +45,25 @@ public class GameManager : MonoBehaviour
     {
         finalText.gameObject.SetActive(true);
         finalText.text = "Perdiste";
+        StartCoroutine(EndGameCountdown());
     }
 
     public void YouWin()
     {
         finalText.gameObject.SetActive(true);
         finalText.text = "Ganaste";
+        StartCoroutine(EndGameCountdown());
     }
 
     //Mandar al menu
+    void EndGame()
+    {
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
+    IEnumerator EndGameCountdown()
+    {
+        yield return new WaitForSeconds(4);
+        EndGame();
+    }
 }
