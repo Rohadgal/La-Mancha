@@ -11,6 +11,7 @@ public class ClickOnDoor : MonoBehaviour
     {
         if (!Combate.enCombate && PlayerMovementOnClick.canMove)
         {
+            FindObjectOfType<AudioManager>().Play("Door");
             StartCoroutine(esperate());
         }
     }

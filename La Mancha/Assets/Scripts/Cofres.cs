@@ -14,6 +14,9 @@ public class Cofres : MonoBehaviour
     public GameObject blackTimmy;
 
     Combate combat;
+
+    //public AudioSource timmyAudio;
+    //public AudioClip timmyAudioClip;
  
 
     private void Start()
@@ -28,6 +31,8 @@ public class Cofres : MonoBehaviour
         {
             MadFix(true);
         }
+
+        //timmyAudio = blackTimmy.GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -58,12 +63,14 @@ public class Cofres : MonoBehaviour
 
     void Enemigo()
     {
+        FindObjectOfType<AudioManager>().Play("Enemy");
         combat.StartCombat();
     }
 
     void Item()
     {
         Character_2.Heal();
+        FindObjectOfType<AudioManager>().Play("Item");
     }
 
     void MadFix(bool estado)
@@ -76,6 +83,7 @@ public class Cofres : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         GameObject tempTimmy = Instantiate(blackTimmy, gameObject.transform.position, Quaternion.identity);
+        //timmyAudio.PlayOneShot(timmyAudioClip);
         yield return new WaitForSeconds(4f);
         Destroy(tempTimmy);
     }
@@ -94,6 +102,6 @@ public class Cofres : MonoBehaviour
     {
         timmy.keys++;
         ActualizarLlaveTexto();
-
+        FindObjectOfType<AudioManager>().Play("Key");
     }
 }

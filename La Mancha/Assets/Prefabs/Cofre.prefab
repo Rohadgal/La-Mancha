@@ -115,6 +115,8 @@ MonoBehaviour:
   timmy: {fileID: 0}
   opciones: 01000000010000000200000002000000030000000000000001000000
   blackTimmy: {fileID: 3379525818358655872, guid: 776143f24d727424991062fea817ec35, type: 3}
+  timmyAudio: {fileID: 904584452475974078, guid: 776143f24d727424991062fea817ec35, type: 3}
+  timmyAudioClip: {fileID: 8300000, guid: 05cc31c1998591c458435b291e7f1578, type: 3}
 --- !u!54 &-2988605737996471863
 Rigidbody:
   m_ObjectHideFlags: 0
