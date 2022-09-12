@@ -31,8 +31,10 @@ public class PlayerMovementOnClick : MonoBehaviour
     {
         if (moving)
         {
-            if (navMeshAgent.remainingDistance < 0.1)
+            Debug.Log(Vector3.Distance(gameObject.transform.position, navMeshAgent.destination));
+            if (Vector3.Distance(gameObject.transform.position, navMeshAgent.destination)< 1f)
             {
+                Debug.Log("Llego a destino");
                 TurnCameraOnOff(false);
                 s_movementCamera.transform.position = s_followCamera.transform.position;
                 moving = false;
@@ -45,12 +47,12 @@ public class PlayerMovementOnClick : MonoBehaviour
     }
     public static void Move(Vector3 position)
     {
+        canMove = false;
         target = null;
         navMeshAgent.updatePosition = true;
+        navMeshAgent.SetDestination(position);
         anim.SetBool("IsWalking", true);
         moving = true;
-        navMeshAgent.destination = position;
-        canMove = false;
     }
 
     public static void Bake()
@@ -61,6 +63,7 @@ public class PlayerMovementOnClick : MonoBehaviour
 
     public static void TurnCameraOnOff(bool apagarCamara)
     {
+        Debug.Log("Apagando camaras");
         s_followCamera.SetActive(apagarCamara);
         s_movementCamera.SetActive(!apagarCamara);
     }

@@ -12,6 +12,7 @@ public class Cofres : MonoBehaviour
     public CofreOpcion[] opciones;
 
     public GameObject blackTimmy;
+    public Animator anim;
 
     Combate combat;
 
@@ -25,20 +26,23 @@ public class Cofres : MonoBehaviour
 
         if (Random.value <= spawnProbability)
         {
-            MadFix(false);
+            //MadFix(false);
+            Destroy(gameObject);
         }
         else
         {
-            MadFix(true);
+            //MadFix(true);
         }
 
         //timmyAudio = blackTimmy.GetComponent<AudioSource>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        Debug.Log(collision.gameObject.CompareTag("Player"));
+        if (collision.gameObject.CompareTag("Player"))
         {
+            anim.enabled = true;
             timmy = collision.gameObject.GetComponent<Character_2>();
             PlayerMovementOnClick.LookAtTarget(gameObject.transform);
             int azarNum = Random.Range(0, opciones.Length);
@@ -50,7 +54,7 @@ public class Cofres : MonoBehaviour
                 case CofreOpcion.Item: Item(); break;
                 case CofreOpcion.Llave: Llave(); break;
             }
-            MadFix(false);
+            StartCoroutine(DestruirCofre());
         }
     }
 
@@ -86,6 +90,13 @@ public class Cofres : MonoBehaviour
         //timmyAudio.PlayOneShot(timmyAudioClip);
         yield return new WaitForSeconds(4f);
         Destroy(tempTimmy);
+    }
+
+    IEnumerator DestruirCofre()
+    {
+        yield return new WaitForSeconds(2f);
+        //MadFix(false);
+        Destroy(gameObject);
     }
 
     void ActualizarManchaTexto()
